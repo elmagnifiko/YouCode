@@ -2,6 +2,7 @@
 import { SiteConfig } from '../../lib/site-config';
 import Link from 'next/link';
 import { ThemeToggle } from '../ThemeToggle';
+import Image from 'next/image';
 import { Typography } from '../ui/Typography';
 
 export function Header() {
@@ -9,6 +10,7 @@ export function Header() {
     <header className="bg-background sticky top-0 z-40 w-full border-b">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div className="flex gap-6 md:gap-10">
+        <Image src="/images/logo.png" width={150} height={35} alt="app logo" />
           <Typography variant="h3" as={Link} href="/">
             {SiteConfig.title}
           </Typography>
