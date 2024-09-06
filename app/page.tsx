@@ -1,9 +1,12 @@
 import Image from "next/image";
+import { Providers } from '../app/Providers';
 
 export default function Home() {
   return (
   <div>
-    hello world
+    <Providers>
+      hello 
+    </Providers>
   </div>
   );
 }
