@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { ThemeToggle } from '../ThemeToggle';
 import Image from 'next/image';
 import { Typography } from '../ui/Typography';
-import Image from 'next/image';
 
 export function Header() {
   return (
