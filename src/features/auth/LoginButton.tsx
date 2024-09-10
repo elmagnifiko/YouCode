@@ -18,7 +18,7 @@ export const LoginButton =() => {
         mutation.mutate()
         }}>
             {mutation.isPending ? ( <Loader className="mr-2" size={12} /> ) : <LogIn className="mr-2" size={12} /> }
-        Connexion
+        Login
 
     </Button>
    )}
