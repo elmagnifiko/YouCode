@@ -1,18 +1,55 @@
-import { Card, CardDescription, CardHeader } from '@/components/ui/card'
-import { getAuthSession } from '@/lib/auth'
-import React from 'react'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { buttonVariants } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { LogoutButton } from '@/features/auth/LogoutButton';
+import { getAuthSession } from '@/lib/auth';
+import Link from 'next/link';
 
 export default async function AccountPage() {
-const session = await getAuthSession();
-   if (!session){
-    throw new Error("No session Found");
-   }
-   const imageUrl: string | null | undefined = session.user.image;
+  const session = await getAuthSession();
+
+  if (!session) {
+    throw new Error('No session found');
+  }
+
   return (
-    <Card>
-        <CardHeader>{session.user.email}</CardHeader>
-        <CardHeader>{session.user.name}</CardHeader>
-        <CardDescription><img className='h-32 rounded-r-2xl ms-4' src={imageUrl ?? undefined} alt="profil" /></CardDescription>
+    <Card className="m-auto mt-4 max-w-lg">
+      <CardHeader className="flex flex-row gap-4 space-y-0">
+        <Avatar>
+          <AvatarFallback>{session.user.email?.[0]}</AvatarFallback>
+          {session.user.image && (
+            <AvatarImage src={session.user.image} alt="user image" />
+          )}
+        </Avatar>
+        <div className="flex flex-col gap-1">
+          <CardTitle>{session.user.email}</CardTitle>
+          <CardDescription>{session.user.name}</CardDescription>
+        </div>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-2">
+        <Link
+          className={buttonVariants({ variant: 'outline', size: 'lg' })}
+          href="/account/settings"
+        >
+          Settings
+        </Link>
+        <Link
+          className={buttonVariants({ variant: 'outline', size: 'lg' })}
+          href="/admin"
+        >
+          Admin
+        </Link>
+      </CardContent>
+      <CardFooter className="flex flex-row-reverse">
+        <LogoutButton />
+      </CardFooter>
     </Card>
-  )
+  );
 }
