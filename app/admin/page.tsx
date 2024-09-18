@@ -14,7 +14,7 @@ import {
           <LayoutTitle>Courses</LayoutTitle>
         </LayoutHeader>
         <LayoutContent>
-          <Link href="/admin/courses">Courses</Link>
+          <Link className='hover:underline' href="/admin/courses">Courses</Link>
         </LayoutContent>
       </Layout>
     );
