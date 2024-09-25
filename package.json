@@ -36,7 +36,7 @@
     "date-fns": "^3.6.0",
     "detect-node-es": "^1.1.0",
     "lucide-react": "^0.438.0",
-    "next": "14.2.7",
+    "next": "^14.2.13",
     "next-auth": "^4.24.7",
     "next-themes": "^0.3.0",
     "pnpm": "^9.9.0",
