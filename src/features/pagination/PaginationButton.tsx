@@ -4,38 +4,46 @@ import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 
 export type CoursePaginationButtonProps = {
-  totalPage: number;
-  page: number;
+  totalPage: number; // Total number of pages (1-based count)
+  page: number; // Current page (0-based index)
   baseUrl: string;
 };
 
-export const CoursePaginationButton = (props: CoursePaginationButtonProps) => {
+export const CoursePaginationButton = ({
+  totalPage,
+  page,
+  baseUrl,
+}: CoursePaginationButtonProps) => {
   const router = useRouter();
+
   return (
     <div className="flex gap-2">
+      {/* Button to go to the previous page */}
       <Button
         variant="outline"
         size="sm"
-        disabled={props.page === 0}
+        disabled={page <= 0} // Disable if on the first page
         onClick={() => {
           const searchParams = new URLSearchParams({
-            page: String(props.page - 1),
+            page: String(page - 1),
           });
-          const url = `${props.baseUrl}?${searchParams.toString()}`;
+          const url = `${baseUrl}?${searchParams.toString()}`;
           router.push(url);
         }}
       >
         Previous
       </Button>
+
+      {/* Button to go to the next page */}
       <Button
         variant="outline"
         size="sm"
-        disabled={props.page === props.totalPage}
+        disabled={page >= totalPage - 1} // Disable if on the last page
         onClick={() => {
           const searchParams = new URLSearchParams({
-            page: String(props.page + 1),
+            page: String(page + 1),
           });
-          const url = `${props.baseUrl}?${searchParams.toString()}`;
+          const url = `${baseUrl}?${searchParams.toString()}`;
           router.push(url);
         }}
       >

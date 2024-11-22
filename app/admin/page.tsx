@@ -11,10 +11,10 @@ import {
     return (
       <Layout>
         <LayoutHeader>
-          <LayoutTitle>Courses</LayoutTitle>
+          <LayoutTitle>Cours</LayoutTitle>
         </LayoutHeader>
-        <LayoutContent>
-          <Link className='hover:underline' href="/admin/courses">Courses</Link>
+        <LayoutContent className='hover:bg-red-600 hover:p-4 rounded-xl'>
+          <Link className='hover:underline' href="/admin/courses">Mes cours</Link>
         </LayoutContent>
       </Layout>
     );

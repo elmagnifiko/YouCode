@@ -17,9 +17,6 @@ export function Header() {
               height={35}
               alt="app logo"
             />
-          <Typography variant="h3" as={Link} href="/">
-            {SiteConfig.title}
-          </Typography>
         </div>
 
         <div className="flex flex-1 items-center justify-end space-x-4">

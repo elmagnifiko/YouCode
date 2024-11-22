@@ -4,9 +4,7 @@ import { Providers } from '../app/Providers';
 export default function Home() {
   return (
   <div>
-    <Providers>
-      hello 
-    </Providers>
+    <Providers />
   </div>
   );
 }
